@@ -20,7 +20,7 @@ class Student(models.Model):
         ordering=['Name']
         
     
-    
+    #  one to one
 class Adhar(models.Model):
     Adhar_no=models.IntegerField(unique=True)
     Create_date=models.DateTimeField()
@@ -34,4 +34,39 @@ class Brajesh(models.Model):
     Email =models.EmailField()
     city= models.CharField(max_length=20)
     Adhar_no=models.OneToOneField(Adhar,on_delete=models.CASCADE)
+    # one to one
     
+    #  one to many
+class department(models.Model):
+    dep_name=models.CharField(max_length=20)
+    desciption=models.CharField(max_length=150)
+    def __str__(self):
+        return self.dep_name
+    
+class Studentone(models.Model):
+    name=models.CharField(max_length=20)
+    email=models.EmailField()
+    contect=models.IntegerField()
+    dep_name=models.ForeignKey(department,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
+    #  one to many consept
+    
+    
+    #  many to many
+class School(models.Model):
+    Sc_name=models.CharField(max_length=20)
+    desciption=models.CharField(max_length=150)
+    def __str__(self):
+        return self.Sc_name
+    
+class Studentmany(models.Model):
+    name=models.CharField(max_length=20)
+    email=models.EmailField()
+    contect=models.IntegerField()
+    dep_name=models.ManyToManyField(School)
+    def __str__(self):
+        return self.name
+    
+    
+    # many to many 
