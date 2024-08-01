@@ -29,7 +29,7 @@ class Adhar(models.Model):
         return str(self.Adhar_no)
     
     
-class Brajesh(models.Model):
+class Custermer_adhar(models.Model):
     Name =models.CharField(max_length=50)
     Email =models.EmailField()
     city= models.CharField(max_length=20)
@@ -43,7 +43,7 @@ class department(models.Model):
     def __str__(self):
         return self.dep_name
     
-class Studentone(models.Model):
+class Dpatment_job(models.Model):
     name=models.CharField(max_length=20)
     email=models.EmailField()
     contect=models.IntegerField()
@@ -60,7 +60,7 @@ class School(models.Model):
     def __str__(self):
         return self.Sc_name
     
-class Studentmany(models.Model):
+class School_data(models.Model):
     name=models.CharField(max_length=20)
     email=models.EmailField()
     contect=models.IntegerField()
